@@ -8,4 +8,4 @@ RUN apt-get install nginx -y
 
 EXPOSE 98
 
-CMD [ "nginx", "-g", "daemon-off;"]
+CMD [ "nginx", "-g", "daemon off;"]
