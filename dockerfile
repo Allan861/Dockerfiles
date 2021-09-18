@@ -1,11 +1,11 @@
-FROM ubuntu:latest
+FROM nginx:latest
 
+# Maintainer of the image
 LABEL version="0.0.1"
 LABEL maintainer="allan.tabri@mail.ee"
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install nginx -y
+# Update the work directory
+WORKDIR /usr/share/nginx/html
 
-EXPOSE 80
-
-CMD [ "nginx", "-g", "daemon off;"]
+# Replace index.html with custom file
+COPY index.html indeix.html
