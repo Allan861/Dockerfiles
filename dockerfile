@@ -8,4 +8,4 @@ LABEL maintainer="allan.tabri@mail.ee"
 WORKDIR /usr/share/nginx/html
 
 # Replace index.html with custom file
-COPY index.html indeix.html
+COPY index.html index.html
