@@ -1,11 +1,5 @@
-FROM nginx:latest
+FROM python:3.10.0rc2-bullseye
 
-# Maintainer of the image
-LABEL version="0.0.1"
-LABEL maintainer="allan.tabri@mail.ee"
+ADD hello.py .
 
-# Update the work directory
-WORKDIR /usr/share/nginx/html
-
-# Replace index.html with custom file
-COPY index.html index.html
+CMD [ "python","./hello.py" ]
