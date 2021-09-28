@@ -23,7 +23,7 @@ services:
     ports:
       - "7600:80"
     volumes:
-      ./mysite.template:/etc/conf.d/mysite.template
+      - ./mysite.template:/etc/conf.d/mysite.template
     environment:
       - NGINX_HOST=sample.com
       - NGINX_port=80
