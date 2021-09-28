@@ -7,6 +7,7 @@ services:
     container_name: Custom_alpine
     entrypoint: tail -f /dev/null
   database:
+    restart: always
     image: postgres:latest
     container_name: postgres_db
     environment:
@@ -15,3 +16,20 @@ services:
       - "5432:5432"
     volumes:
       - ../dump:/tmp/
+  web:
+    image: nginx
+    restart: always
+    container_name: nginx_web
+    ports:
+      - "7600:80"
+    volumes:
+      ./mysite.template:/etc/conf.d/mysite.template
+    environment:
+      - NGINX_HOST=sample.com
+      - NGINX_port=80
+    links:
+      - database:db
+      - distro
+volumes:
+  data:
+    external: true
